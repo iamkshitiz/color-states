@@ -1,0 +1,153 @@
+<!doctype html>
+<html class="no-js" lang="eng">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Google Map</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+		<style>
+			#map {
+				height: 100%;
+			}
+			html, body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body>
+		<script type='text/javascript' src='http://www.google.com/jsapi'></script>
+		<script type='text/javascript'>
+			google.load('visualization', '1', {'packages': ['geochart']});
+			google.setOnLoadCallback(drawVisualization);
+
+			function drawVisualization()
+			{
+				var data = new google.visualization.DataTable();
+
+				data.addColumn('string', 'Country');
+				data.addColumn('number', 'Value');
+				data.addColumn({type:'string', role:'tooltip'});
+				var ivalue = new Array();
+
+				data.addRows([[{v:'IN-AP',f:'Andhra Pradesh'},0,'Andhra Pradesh']]);
+				ivalue['IN-AP'] = '';
+
+				data.addRows([[{v:'IN-AR',f:'Arunachal Pradesh'},1,'Arunachal Pradesh']]);
+				ivalue['IN-AR'] = '';
+
+				data.addRows([[{v:'IN-AS',f:'Assam'},2,'Assam']]);
+				ivalue['IN-AS'] = '';
+
+				data.addRows([[{v:'IN-BR',f:'Bihar'},3,'Bihar']]);
+				ivalue['IN-BR'] = '';
+
+				data.addRows([[{v:'IN-BA',f:'Bahia'},4,'Exemplo de Informação']]);
+				ivalue['IN-BA'] = '';
+
+				data.addRows([[{v:'IN-CT',f:'Chhattisgarh'},5,'Chhattisgarh']]);
+				ivalue['IN-CT'] = '';
+
+				data.addRows([[{v:'IN-GA',f:'Goa'},6,'Goa']]);
+				ivalue['IN-GA'] = '';
+
+				data.addRows([[{v:'IN-GJ',f:'Gujarat'},7,'Gujarat']]);
+				ivalue['IN-GJ'] = '';
+
+				data.addRows([[{v:'IN-HR',f:'Haryana'},8,'Haryana']]);
+				ivalue['IN-HR'] = '';
+
+				data.addRows([[{v:'IN-HP',f:'Himachal Pradesh'},9,'Himachal Pradesh']]);
+				ivalue['IN-HP'] = '';
+
+				data.addRows([[{v:'IN-JK',f:'Jammu and Kashmir'},10,'Jammu and Kashmir']]);
+				ivalue['IN-JK'] = '';
+
+				data.addRows([[{v:'IN-JH',f:'Jharkhand'},11,'Jharkhand']]);
+				ivalue['IN-JH'] = '';
+
+				data.addRows([[{v:'IN-KA',f:'Karnataka'},12,'Karnataka']]);
+				ivalue['IN-KA'] = '';
+
+				data.addRows([[{v:'IN-KL',f:'Kerala'},13,'Kerala']]);
+				ivalue['IN-KL'] = '';
+
+				data.addRows([[{v:'IN-MP',f:'Madhya Pradesh'},14,'Madhya Pradesh']]);
+				ivalue['IN-MP'] = '';
+
+				data.addRows([[{v:'IN-MH',f:'Maharashtra'},15,'Maharashtra']]);
+				ivalue['IN-MH'] = '';
+
+				data.addRows([[{v:'IN-MN',f:'Manipur'},16,'Manipur']]);
+				ivalue['IN-MN'] = '';
+
+				data.addRows([[{v:'IN-ML',f:'Meghalaya'},17,'MeghalayaML']]);
+				ivalue['IN-ML'] = '';
+
+				data.addRows([[{v:'IN-MZ',f:'Mizoram'},18,'Mizoram']]);
+				ivalue['IN-MZ'] = '';
+
+				data.addRows([[{v:'IN-NL',f:'Nagaland'},19,'Nagaland']]);
+				ivalue['IN-NL'] = '';
+
+				data.addRows([[{v:'IN-OR',f:'Orissa'},20,'Orissa']]);
+				ivalue['IN-OR'] = '';
+
+				data.addRows([[{v:'IN-PB',f:'Punjab'},21,'Punjab']]);
+				ivalue['IN-PB'] = '';
+
+				data.addRows([[{v:'IN-RJ',f:'Rajasthan'},22,'Rajasthan']]);
+				ivalue['IN-RJ'] = '';
+
+				data.addRows([[{v:'IN-RS',f:'Sikkim'},23,'Sikkim']]);
+				ivalue['IN-RS'] = '';
+
+				data.addRows([[{v:'IN-TN',f:'Tamil Nadu'},24,'Tamil Nadu']]);
+				ivalue['IN-TN'] = '';
+
+				data.addRows([[{v:'IN-TR',f:'Tripura'},25,'Tripura']]);
+				ivalue['IN-TR'] = '';
+
+				data.addRows([[{v:'IN-UT',f:'Uttarakhand'},26,'Uttarakhand']]);
+				ivalue['IN-UT'] = '';
+
+				data.addRows([[{v:'IN-UP',f:'Uttar Pradesh'},27,'Uttar Pradesh']]);
+				ivalue['IN-UP'] = '';
+
+				data.addRows([[{v:'IN-WB',f:'West Bengal'},28,'West Bengal']]);
+				ivalue['IN-WB'] = '';
+
+				data.addRows([[{v:'IN-DL',f:'Delhi'},29,'Delhi']]);
+				ivalue['IN-DL'] = '';
+
+				var options = {
+					backgroundColor: {fill:'transparent',stroke:'#FFFFFF' ,strokeWidth:0 },
+					colorAxis:  {minValue: 0, maxValue: 29,  colors: ['#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50','#8BC34A','#CDDC39','#FFEB3B','#FFC107','#FF9800','#FF5722','#795548','#9E9E9E','#607D8B','#F44336','#E91E63','#9C27B0','#673AB7','#3F51B5','#2196F3','#03A9F4','#00BCD4','#009688','#4CAF50']},
+					legend: 'none',
+					backgroundColor: {fill:'transparent',stroke:'#FFFFFF' ,strokeWidth:0 },
+					datalessRegionColor: '#f5f5f5',
+					displayMode: 'regions',
+					enableRegionInteractivity: 'true',
+					resolution: 'provinces',
+					sizeAxis: {minValue: 1, maxValue:1, minSize:10, maxSize: 10},
+					region:'IN',
+					keepAspectRatio: true,
+					width:800,
+					height:800,
+					tooltip: {textStyle: {color: '#000000'}, trigger:'focus'}
+				};
+				var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
+				chart.draw(data, options);
+			}
+		</script>
+		<div id='visualization'></div>
+	</body>
+</html>
